@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>For Gauri 💖</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: "Segoe UI", sans-serif;
+      background: linear-gradient(135deg, #ffd6e8, #e6d9ff);
+      color: #4a2c4a;
+      text-align: center;
+      overflow-x: hidden;
+    }
+
+    .container {
+      padding: 24px 16px;
+      max-width: 720px;
+      margin: auto;
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 6px;
+    }
+
+    h2 {
+      font-size: 1.4rem;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.82);
+      border-radius: 20px;
+      padding: 20px;
+      margin: 20px 0;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+      animation: fadeIn 1s ease;
+    }
+
+    button {
+      background: #ff7eb3;
+      border: none;
+      color: white;
+      padding: 14px 22px;
+      font-size: 1rem;
+      border-radius: 30px;
+      cursor: pointer;
+      margin-top: 12px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    }
+
+    .reasons {
+      padding: 0;
+    }
+
+    .reasons li {
+      list-style: none;
+      margin: 10px 0;
+      font-size: 1rem;
+    }
+
+    /* floating hearts */
+    .heart {
+      position: fixed;
+      top: -10px;
+      font-size: 18px;
+      animation: fall linear infinite;
+      pointer-events: none;
+    }
+
+    @keyframes fall {
+      to {
+        transform: translateY(110vh);
+        opacity: 0;
+      }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(14px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .popup {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.5);
+      justify-content: center;
+      align-items: center;
+      padding: 16px;
+    }
+
+    .popup-content {
+      background: white;
+      padding: 24px;
+      border-radius: 20px;
+      max-width: 320px;
+      animation: fadeIn 0.4s ease;
+    }
+
+    @media (min-width: 768px) {
+      h1 { font-size: 2.5rem; }
+      p { font-size: 1.1rem; }
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <h1>Hey <span id="herName"></span> 🥺💗</h1>
+  <p>I know you’re upset right now… but please hear my heart 🤍</p>
+
+  <div class="card">
+    <p>
+      I’m really sorry if I hurt you 🥹  
+      You mean more to me than words can explain 💖  
+      My world feels incomplete without your smile.
+    </p>
+  </div>
+
+  <div class="card">
+    <h2>Reasons I Love You 💕</h2>
+    <ul class="reasons">
+      <li>🌸 Your smile changes my whole day</li>
+      <li>🐻 You make me feel safe</li>
+      <li>✨ You bring calm to my chaos</li>
+      <li>💖 You are my home</li>
+    </ul>
+  </div>
+
+  <button onclick="showPopup()">Click if you still love me 🥺👉👈</button>
+
+  <!-- FINAL PROMISE -->
+  <div class="card">
+    <h2>My Promise to You 💍</h2>
+    <p>
+      I promise to listen better,  
+      love you harder,  
+      and never take you for granted 💞  
+      <br><br>
+      On good days and bad days —  
+      I choose you. Always 🤍
+    </p>
+  </div>
+
+  <!-- SEND SMILE BUTTON -->
+  <button onclick="sendSmile()">Send me a smile 😊</button>
+
+</div>
+
+<!-- POPUP -->
+<div class="popup" id="popup">
+  <div class="popup-content">
+    <h2>I choose you, <span id="popupName"></span> 💖</h2>
+    <p>Always. No matter what 🤍</p>
+    <button onclick="closePopup()">Close 💞</button>
+  </div>
+</div>
+
+<script>
+  // dynamic name
+  const name = "Gauri";
+  document.getElementById("herName").innerText = name;
+  document.getElementById("popupName").innerText = name;
+
+  // hearts
+  function createHeart() {
+    const heart = document.createElement("div");
+    heart.className = "heart";
+    heart.innerText = ["💖","💗","🌸","✨","🐻"][Math.floor(Math.random()*5)];
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.animationDuration = 3 + Math.random() * 3 + "s";
+    document.body.appendChild(heart);
+    setTimeout(() => heart.remove(), 6000);
+  }
+  setInterval(createHeart, 400);
+
+  function showPopup() {
+    document.getElementById("popup").style.display = "flex";
+  }
+
+  function closePopup() {
+    document.getElementById("popup").style.display = "none";
+  }
+
+  function sendSmile() {
+    alert("Smile received 😊💖 Thank you, Gauri.");
+  }
+</script>
+
+</body>
+</html>
